@@ -25,6 +25,12 @@ class City
     return results.map {|city|Cities.new(city)}
   end
 
+  def update()
+    sql = "UPDATE cities SET (name, visited, country_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @visited, @country_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM cities"
     SqlRunner.run(sql)

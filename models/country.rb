@@ -25,6 +25,12 @@ class Country
     return results.map {|country|Country.new(country)}
   end
 
+  def update()
+    sql = "UPDATE countries SET (name, visited, continent_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @visited, @continent_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM countries"
     SqlRunner.run(sql)

@@ -26,6 +26,12 @@ class Sight
     return results.map {|sight|Sight.new(sight)}
   end
 
+  def update()
+    sql = "UPDATE sights SET (name, visited, type, city_id) = ($1, $2, $3, $4) WHERE id = $5"
+    values = [@name, @visited, @type, @city_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM sights"
     SqlRunner.run(sql)

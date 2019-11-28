@@ -3,8 +3,6 @@ DROP TABLE IF EXISTS cities;
 DROP TABLE IF EXISTS countries;
 DROP TABLE IF EXISTS continents;
 
-
-
 CREATE TABLE continents(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR,
@@ -15,7 +13,7 @@ CREATE TABLE countries(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
   visited BOOLEAN,
-  continent_id INT REFERENCES continents(id) ON DELETE CASCADE 
+  continent_id INT REFERENCES continents(id) ON DELETE CASCADE
 );
 
 CREATE TABLE cities(
