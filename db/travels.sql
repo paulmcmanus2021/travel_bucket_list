@@ -15,14 +15,14 @@ CREATE TABLE countries(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
   visited BOOLEAN,
-  continent_id INT REFERENCES continents(id)
+  continent_id INT REFERENCES continents(id) ON DELETE CASCADE 
 );
 
 CREATE TABLE cities(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
   visited BOOLEAN,
-  country_id INT REFERENCES countries(id)
+  country_id INT REFERENCES countries(id) ON DELETE CASCADE
 );
 
 CREATE TABLE sights(
@@ -30,7 +30,7 @@ CREATE TABLE sights(
   name VARCHAR not null,
   visited BOOLEAN,
   type VARCHAR,
-  city_id INT REFERENCES cities(id)
+  city_id INT REFERENCES cities(id) ON DELETE CASCADE
 );
 
 -- Sights depends countries & cities so gets dropped first.
