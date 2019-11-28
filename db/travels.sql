@@ -1,29 +1,36 @@
 DROP TABLE IF EXISTS sights;
 DROP TABLE IF EXISTS cities;
 DROP TABLE IF EXISTS countries;
+DROP TABLE IF EXISTS continents;
+
+
+
+CREATE TABLE continents(
+  id SERIAL8 PRIMARY KEY,
+  name VARCHAR,
+  visited BOOLEAN
+);
 
 CREATE TABLE countries(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
-  cities VARCHAR,
-  visited BOOLEAN
+  visited BOOLEAN,
+  continent_id INT REFERENCES continents(id)
 );
 
 CREATE TABLE cities(
   id SERIAL8 PRIMARY KEY,
-  country_id INT REFERENCES countries(id),
   name VARCHAR not null,
-  sights VARCHAR,
-  visited BOOLEAN
+  visited BOOLEAN,
+  country_id INT REFERENCES countries(id)
 );
 
 CREATE TABLE sights(
   id SERIAL8 PRIMARY KEY,
-  country_id INT REFERENCES,
-  city_id INT REFERENCES cities(id),
   name VARCHAR not null,
+  visited BOOLEAN,
   type VARCHAR,
-  visited BOOLEAN
+  city_id INT REFERENCES cities(id)
 );
 
 -- Sights depends countries & cities so gets dropped first.
