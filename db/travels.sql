@@ -28,6 +28,7 @@ CREATE TABLE sights(
   name VARCHAR not null,
   visited BOOLEAN,
   type VARCHAR,
+  country_id INT REFERENCES countries(id) ON DELETE CASCADE,
   city_id INT REFERENCES cities(id) ON DELETE CASCADE
 );
 

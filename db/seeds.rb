@@ -37,6 +37,13 @@ country2 = Country.new({
   })
   country2.save
 
+country3 = Country.new({
+  'name' => 'Canada',
+  'visited' => 'f',
+  'continent_id' => continent1.id
+  })
+  country3.save
+
 #Cities
 city1 = City.new({
   'name' => 'New York City',
@@ -52,12 +59,27 @@ city2 = City.new({
   })
   city2.save
 
+city3 = City.new({
+  'name' => 'Los Angeles',
+  'visited' => 'f',
+  'country_id' => country1.id
+  })
+  city3.save
+
+city4 = City.new({
+  'name' => 'Toronto',
+  'visited' => 'f',
+  'country_id' => country3.id
+  })
+  city4.save
+
 #Sights
 sight1 = Sight.new({
   'name' => 'Empire State Building',
   'visited' => 't',
   'type' => 'Architecture',
-  'city_id' => city1.id,
+  'country_id' => country1.id,
+  'city_id' => city1.id
   })
   sight1.save
 
@@ -65,7 +87,8 @@ sight2 = Sight.new({
   'name' => 'Times Square',
   'visited' => 't',
   'type' => 'Area',
-  'city_id' => city1.id,
+  'country_id' => country1.id,
+  'city_id' => city1.id
   })
   sight2.save
 
@@ -73,9 +96,30 @@ sight3 = Sight.new({
   'name' => 'Christ the Redeemer',
   'visited' => 'f',
   'type' => 'Statue',
-  'city_id' => city2.id,
+  'country_id' => country2.id,
+  'city_id' => city2.id
   })
   sight3.save
+
+sight4 = Sight.new({
+  'name' => 'Griffith Park Observatory',
+  'visited' => 'f',
+  'type' => 'Architecture',
+  'country_id' => country1.id,
+  'city_id' => city3.id
+  })
+  sight4.save
+
+sight5 = Sight.new({
+  'name' => 'CN Tower',
+  'visited' => 'f',
+  'type' => 'Architecture',
+  'country_id' => country3.id,
+  'city_id' => city4.id
+  })
+  sight5.save
+
+
 
   binding.pry
   nil

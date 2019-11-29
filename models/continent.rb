@@ -1,4 +1,5 @@
 require_relative ('../db/sql_runner')
+require_relative ('country.rb')
 
 class Continent
 
@@ -33,6 +34,27 @@ class Continent
   def self.delete_all()
     sql = "DELETE FROM continents"
     SqlRunner.run(sql)
+  end
+
+  def delete()
+    sql = "DELETE FROM continents WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM continents WHERE id = $1"
+    values = [id]
+    continent = SqlRunner.run(sql, values)[0]
+    return Continent.new(continent)
+  end
+
+  #find all countries in a continent
+  def countries()
+    sql = "SELECT * FROM countries WHERE continent_id = $1"
+    values = [@id]
+    countries = SqlRunner.run(sql, values)
+    return countries.map {|country|Country.new(country)}
   end
 
 

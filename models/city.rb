@@ -3,13 +3,13 @@ require_relative ('../db/sql_runner')
 class City
 
   attr_reader :id
-  attr_accessor :name, :country_id, :visited
+  attr_accessor :name, :visited, :country_id
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
     @visited = details['visited']
-    @country_id = details['country_id'].to_i()
+    @country_id = details['country_id'].to_i
   end
 
   def save()
@@ -35,6 +35,28 @@ class City
     sql = "DELETE FROM cities"
     SqlRunner.run(sql)
   end
+
+  def delete()
+    sql = "DELETE FROM cities WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM cities WHERE id = $1"
+    values = [id]
+    city = SqlRunner.run(sql, values)[0]
+    return City.new(city)
+  end
+
+  #find all sights in a city
+  def sights()
+    sql = "SELECT * FROM sights WHERE city_id = $1"
+    values = [@id]
+    sights = SqlRunner.run(sql, values)
+    return sights.map {|sight|Sight.new(sight)}
+  end
+
 
 
 end

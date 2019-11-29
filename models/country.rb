@@ -36,11 +36,34 @@ class Country
     SqlRunner.run(sql)
   end
 
+  def delete()
+    sql = "DELETE FROM countries WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
+  def self.find(id)
+    sql = "SELECT * FROM countries WHERE id = $1"
+    values = [id]
+    country = SqlRunner.run(sql, values)[0]
+    return Country.new(country)
+  end
 
+  #find all cities in a country
+  def cities()
+    sql = "SELECT * FROM cities WHERE country_id = $1"
+    values = [@id]
+    cities = SqlRunner.run(sql, values)
+    return cities.map {|city|City.new(city)}
+  end
 
-
-
+  #find all sights in a country
+  def sights()
+    sql = "SELECT sights.* FROM sights WHERE country_id = $1;"
+    values = [@id]
+    sights = SqlRunner.run(sql, values)
+    return sights.map {|sight|Sight.new(sight)}
+  end
 
 
 
