@@ -57,6 +57,19 @@ class Continent
     return countries.map {|country|Country.new(country)}
   end
 
+  #continents visited
+  def self.been_there
+    sql = "SELECT * FROM continents WHERE visited = 't';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|continent|Continent.new(continent)}
+  end
+
+  def self.not_been_there
+    sql = "SELECT * FROM continents WHERE visited = 'f';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|continent|Continent.new(continent)}
+  end
+
 
 
 

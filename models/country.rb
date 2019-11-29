@@ -65,6 +65,18 @@ class Country
     return sights.map {|sight|Sight.new(sight)}
   end
 
+  #countries visited
+  def self.been_there
+    sql = "SELECT * FROM countries WHERE visited = 't';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|country|Country.new(country)}
+  end
+
+  def self.not_been_there
+    sql = "SELECT * FROM countries WHERE visited = '';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|country|Country.new(country)}
+  end
 
 
 #

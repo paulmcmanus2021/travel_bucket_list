@@ -51,4 +51,19 @@ class Sight
     return Sight.new(sight)
   end
 
+  #sights visited
+  def self.been_there
+    sql = "SELECT * FROM sights WHERE visited = 't';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|sight|Sight.new(sight)}
+  end
+
+  def self.not_been_there
+    sql = "SELECT * FROM sights WHERE visited = 'f';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|sight|Sight.new(sight)}
+  end
+
+
+
 end

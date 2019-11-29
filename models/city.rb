@@ -57,6 +57,19 @@ class City
     return sights.map {|sight|Sight.new(sight)}
   end
 
+  #cities visited
+  def self.been_there
+    sql = "SELECT * FROM cities WHERE visited = 't';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|city|City.new(city)}
+  end
+
+  def self.not_been_there
+    sql = "SELECT * FROM cities WHERE visited = 'f';"
+    visited = SqlRunner.run(sql)
+    return visited.map {|city|City.new(city)}
+  end
+
 
 
 end

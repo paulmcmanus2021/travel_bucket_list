@@ -1,0 +1,29 @@
+<h1>Index page for destinations page</h1>
+
+<h2>Continents I Want To Visit</h2>
+
+<% for continent in @continents %>
+  <p><%= continent.name %></p>
+<% end %>
+<hr />
+
+<h2>Countries I Want To Visit</h2>
+
+<% for country in @countries %>
+  <p><%= country.name %></p>
+<% end %>
+<hr />
+
+<h2>Cities I Want To Visit</h2>
+
+<% for city in @cities %>
+  <p><%= city.name %></p>
+<% end %>
+<hr />
+
+<h2>Sights I Want To See</h2>
+
+<% for sight in @sights %>
+  <p><%= sight.name %></p>
+<% end %>
+<hr />
