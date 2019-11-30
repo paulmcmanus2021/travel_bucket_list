@@ -4,8 +4,20 @@
 
 <form action="/visited" method="POST">
   <!-- Eventually make this a drop down with the 7 continents -->
-  <label for="continent">Continent:</label>
-  <input required type="text" placeholder="e.g. Europe" id="continent" name="continent">
+
+  <select name="continent" id="continent">
+    <option value="" selected="selected" disabled>Continent</option>
+    <option value="Africa">Africa</option>
+    <option value="Asia">Asia</option>
+    <option value="Antarctica">Antarctica</option>
+    <option value="Australia">Australia</option>
+    <option value="Europe">Europe</option>
+    <option value="North America">North America</option>
+    <option value="South America">South America</option>
+
+  </select>
+  <!-- <label for="continent">Continent:</label>
+  <input required type="text" placeholder="e.g. Europe" id="continent" name="continent"> -->
 
   <label for="country">Country:</label>
   <input required type="text" placeholder="e.g. Italy" id="country" name="country">
@@ -24,5 +36,8 @@
   <label for="been">Add to visited places</label>
   <input type="radio" name="status" value="going" id="going">
   <label for="going">Add to wishlist</label>
+  <br>
+  <br>
+  <input type="submit" value="Submit">
 
 </form>
