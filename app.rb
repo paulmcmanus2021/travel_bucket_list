@@ -5,6 +5,7 @@ also_reload('./models/*')
 
 require_relative("./controllers/visited_controller.rb")
 require_relative("./controllers/destination_controller.rb")
+require_relative("./controllers/new_controller.rb")
 
 
 

@@ -4,5 +4,5 @@ require_relative('../models/city.rb')
 require_relative('../models/sight.rb')
 
 get '/new' do
-  erb(:"/new")
+  erb(:"new")
 end
