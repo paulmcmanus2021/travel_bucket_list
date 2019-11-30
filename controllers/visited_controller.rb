@@ -14,16 +14,17 @@ end
 
 # NEW
 get '/visited/new' do
-  erb(:"visited/new")
+  redirect "/new"
+  erb(:"/new/")
 end
-#
+
 # # CREATE
 # post '/customers' do
 #   customer = Customer.new(params)
 #   customer.save()
 #   redirect "/customers"
 # end
-#
+
 # # SHOW
 # get '/customers/:id' do
 #   id = params[:id].to_i()

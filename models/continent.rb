@@ -45,7 +45,7 @@ class Continent
   def self.find(id)
     sql = "SELECT * FROM continents WHERE id = $1"
     values = [id]
-    continent = SqlRunner.run(sql, values)[0]
+    continent = SqlRunner.run(sql, values).first
     return Continent.new(continent)
   end
 

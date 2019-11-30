@@ -1,9 +1,14 @@
-<h1>Index page for visited page</h1>
+<h1>Index page for visited</h1>
+
+<button><a href="/visited/new">Add new</a></button>
 
 <h2>Continents Visited</h2>
 
 <% for continent in @continents %>
   <p><%= continent.name %></p>
+  <button><a href="/visited/show">Show trip</a></button>
+  <button><a href="">Edit Trip</a></button>
+  <button><a href="">Delete trip</a></button>
 <% end %>
 <hr />
 
@@ -11,6 +16,9 @@
 
 <% for country in @countries %>
   <p><%= country.name %></p>
+  <button><a href="">Show trip</a></button>
+  <button><a href="">Edit Trip</a></button>
+  <button><a href="">Delete trip</a></button>
 <% end %>
 <hr />
 
@@ -18,6 +26,9 @@
 
 <% for city in @cities %>
   <p><%= city.name %></p>
+  <button><a href="">Show trip</a></button>
+  <button><a href="">Edit Trip</a></button>
+  <button><a href="">Delete trip</a></button>
 <% end %>
 <hr />
 
@@ -25,5 +36,9 @@
 
 <% for sight in @sights %>
   <p><%= sight.name %></p>
+  <button><a href="">Show trip</a></button>
+  <button><a href="">Edit Trip</a></button>
+  <button><a href="">Delete trip</a></button>
 <% end %>
+
 <hr />

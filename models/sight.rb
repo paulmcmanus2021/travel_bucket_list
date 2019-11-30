@@ -47,7 +47,7 @@ class Sight
   def self.find(id)
     sql = "SELECT * FROM sights WHERE id = $1"
     values = [id]
-    sight = SqlRunner.run(sql, values)[0]
+    sight = SqlRunner.run(sql, values).find
     return Sight.new(sight)
   end
 

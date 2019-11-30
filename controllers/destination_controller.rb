@@ -14,5 +14,6 @@ end
 
 # NEW
 get '/destinations/new' do
-  erb(:"destinations/new")
+  redirect "/new"
+  erb(:"/new")
 end

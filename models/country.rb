@@ -45,7 +45,7 @@ class Country
   def self.find(id)
     sql = "SELECT * FROM countries WHERE id = $1"
     values = [id]
-    country = SqlRunner.run(sql, values)[0]
+    country = SqlRunner.run(sql, values).first
     return Country.new(country)
   end
 
@@ -73,7 +73,7 @@ class Country
   end
 
   def self.not_been_there
-    sql = "SELECT * FROM countries WHERE visited = '';"
+    sql = "SELECT * FROM countries WHERE visited = 'f';"
     visited = SqlRunner.run(sql)
     return visited.map {|country|Country.new(country)}
   end

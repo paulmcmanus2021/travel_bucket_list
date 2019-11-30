@@ -45,7 +45,7 @@ class City
   def self.find(id)
     sql = "SELECT * FROM cities WHERE id = $1"
     values = [id]
-    city = SqlRunner.run(sql, values)[0]
+    city = SqlRunner.run(sql, values).first
     return City.new(city)
   end
 
