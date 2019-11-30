@@ -1,0 +1,9 @@
+<h1>Countries</h1>
+
+<button onclick="window.location.href = '/countries/new';">Add a country</button>
+
+<% for country in @countries %>
+  <p><%= country.name() %></p>
+  <button onclick="window.location.href = '/countries/<%= country.id() %>/edit';">Edit Country</button>
+  <button onclick="window.location.href = '/countries/<%= country.id() %>/delete';">Delete Country</button>
+<% end %>

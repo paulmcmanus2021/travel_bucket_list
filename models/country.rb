@@ -13,8 +13,8 @@ class Country
   end
 
   def save()
-    sql = "INSERT INTO countries (name, visited, continent_id) VALUES ($1, $2, $3) RETURNING id;"
-    values = [@name, @visited, @continent_id]
+    sql = "INSERT INTO countries (name) VALUES ($1) RETURNING id;"
+    values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -26,8 +26,8 @@ class Country
   end
 
   def update()
-    sql = "UPDATE countries SET (name, visited, continent_id) = ($1, $2, $3) WHERE id = $4"
-    values = [@name, @visited, @continent_id, @id]
+    sql = "UPDATE countries SET name = $1 WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run(sql, values)
   end
 
