@@ -24,6 +24,21 @@ post '/countries' do
   redirect "/countries"
 end
 
+# SHOW
+get '/countries/:id' do
+  id = params[:id].to_i()
+  @country = Country.find(id)
+  erb(:"countries/show")
+end
+
+# DELETE
+post '/countries/:id/delete' do
+  id = params[:id].to_i()
+  country = Country.find(id)
+  country.delete()
+  redirect '/countries'
+end
+
 # EDIT
 get '/countries/:id/edit' do
   id = params[:id].to_i()
@@ -37,19 +52,3 @@ post '/countries/:id' do
   country.update()
   redirect '/countries'
 end
-#
-# # SHOW
-# get '/pizzas/:id' do
-#   id = params[:id].to_i()
-#   @order = PizzaOrder.find(id)
-#   erb(:"pizzas/show")
-# end
-#
-# # DELETE
-# post '/pizzas/:id/delete' do
-#   id = params[:id].to_i()
-#   order = PizzaOrder.find(id)
-#   order.delete()
-#   redirect '/pizzas'
-# end
-#
