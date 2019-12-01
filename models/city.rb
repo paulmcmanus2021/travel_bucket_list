@@ -22,7 +22,7 @@ class City
   def self.all()
     sql = "SELECT * FROM cities"
     results = SqlRunner.run(sql)
-    return results.map {|city|Cities.new(city)}
+    return results.map {|city|City.new(city)}
   end
 
   def update()
