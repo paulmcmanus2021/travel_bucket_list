@@ -59,14 +59,14 @@ class City
 
   # cities visited
   def self.been_there(country_id)
-    sql = "SELECT * FROM cities WHERE visited = 't' WHERE country_id = $1;"
+    sql = "SELECT * FROM cities WHERE visited = 't' AND country_id = $1;"
     values = [country_id]
     visited = SqlRunner.run(sql, values)
     return visited.map {|city|City.new(city)}
   end
 
-  def self.not_been_there
-    sql = "SELECT * FROM cities WHERE visited = 'f' WHERE country_id = $1;"
+  def self.not_been_there(country_id)
+    sql = "SELECT * FROM cities WHERE visited = 'f' AND country_id = $1;"
     values = [country_id]
     visited = SqlRunner.run(sql, values)
     return visited.map {|city|City.new(city)}

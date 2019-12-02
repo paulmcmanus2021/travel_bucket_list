@@ -10,14 +10,12 @@
 
   <label for="city"></label>
   <input required type="text" placeholder="City Name" id="city" name="name">
-  <br>
-  <br>
-
+<br>
+<br>
   <input type="radio" name="visited" value="t" id="t">
     <label for="t">Add to visited</label>
   <input type="radio" name="visited" value="f" id="f">
     <label for="f">Add to Still to See</label>
-
 <br>
 <br>
   <button type="Submit">Submit</button>
@@ -27,17 +25,27 @@
 
 <h2>Cities Visited</h2>
 
+<% for city in @cities %>
+  <% if (city.visited)  %>
+      <p><%= city.name() %></p>
+    <%end %>
+<%end%>
 
 
 <h2>Cities Still to See</h2>
+
+<% for city in @cities %>
+  <% if (!city.visited)  %>
+      <p><%= city.name() %></p>
+    <%end %>
+<%end%>
+
+
+
+
+
+
 <hr>
-
-<!-- for city in @cities
-  if status=going
-    p city
-  end
-end -->
-
 
 <h2>Sights Seen</h2>
 <h2>Sights Still to See</h2>

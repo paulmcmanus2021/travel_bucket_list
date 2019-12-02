@@ -65,28 +65,28 @@ country3 = Country.new({
 city1 = City.new({
   'name' => 'New York City',
   'country_id' => country1.id,
-  'visited' => true
+  'visited' => 't'
   })
   city1.save
 
 city2 = City.new({
   'name' => 'Rio de Janeiro',
   'country_id' => country2.id,
-  'visited' => false
+  'visited' => 'f'
   })
   city2.save
 
 city3 = City.new({
   'name' => 'Los Angeles',
   'country_id' => country1.id,
-  'visited' => false
+  'visited' => 'f'
   })
   city3.save
 
 city4 = City.new({
   'name' => 'Toronto',
   'country_id' => country3.id,
-  'visited' => false
+  'visited' => 'f'
   })
   city4.save
 
