@@ -27,7 +27,7 @@
 <% for city in @cities %>
   <% if (city.visited)  %>
       <p><%= city.name() %></p>
-      <button><a href="">Edit City</a></button>
+      <button><a href="/cities/ <%= city.id %>/edit">Edit City</a></button>
       <form action="/cities/<%= city.id %>/delete" method="POST">
         <input type="submit" value="Delete City">
       </form>
@@ -41,7 +41,7 @@
 <% for city in @cities %>
   <% if (!city.visited)  %>
       <p><%= city.name() %></p>
-      <button><a href="">Edit City</a></button>
+      <button><a href="/cities/ <%= city.id %>/edit ">Edit City</a></button>
       <form action="/cities/<%= city.id %>/delete" method="POST">
         <input type="submit" value="Delete City">
       </form>
