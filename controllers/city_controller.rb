@@ -19,7 +19,6 @@ end
 
 # CREATE
 post '/cities' do
-  binding.pry
   city_hash = params
   city = City.new(city_hash)
   city.save()
@@ -35,7 +34,6 @@ end
 
 # ADD CITY TO COUNTRY
 post '/countries/:id/' do
-
 
 end
 

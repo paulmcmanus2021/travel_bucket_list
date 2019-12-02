@@ -3,8 +3,7 @@
 
 <h4>Add a city in <%= @country.name %></h4>
 
-<form action="/cities" method="POST">
-
+<form action="/countries/:id" method="POST">
 
   <input type="text" name="country_id" hidden value="<%= @country.id %>">
 
