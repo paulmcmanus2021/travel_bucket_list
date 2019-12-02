@@ -32,6 +32,13 @@ get '/countries/:id' do
   erb(:"countries/show")
 end
 
+# ADD CITY TO COUNTRY
+post '/countries/:id' do
+  city = City.new(params)
+  city.save
+  redirect '/countries'
+end
+
 # DELETE
 post '/countries/:id/delete' do
   id = params[:id].to_i()

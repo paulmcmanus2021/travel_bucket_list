@@ -32,11 +32,6 @@ get '/cities/:id' do
   erb(:"cities/show")
 end
 
-# ADD CITY TO COUNTRY
-post '/countries/:id/' do
-
-end
-
 # DELETE
 post '/cities/:id/delete' do
   id = params[:id].to_i()
