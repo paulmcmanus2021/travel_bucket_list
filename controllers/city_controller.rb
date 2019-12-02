@@ -18,10 +18,11 @@ end
 
 # CREATE
 post '/cities' do
+  binding.pry
   city_hash = params
   city = City.new(city_hash)
   city.save()
-  redirect "/cities"
+  redirect "/countries/" + params['country_id']
 end
 
 # SHOW
@@ -29,6 +30,12 @@ get '/cities/:id' do
   id = params[:id].to_i()
   @city = City.find(id)
   erb(:"cities/show")
+end
+
+# ADD CITY TO COUNTRY
+post '/countries/:id/' do
+
+
 end
 
 # DELETE

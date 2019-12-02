@@ -1,20 +1,20 @@
 require_relative ('../db/sql_runner')
+require('pry')
 
 class Country
 
   attr_reader :id
-  attr_accessor :name, :visited, :continent_id
+  attr_accessor :name, :continent_id, :visited
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
-    @visited = details['visited']
-    @continent_id = details['continent_id'].to_i()
+    @visited = details['visited'] == "t" ? true : false
   end
 
   def save()
-    sql = "INSERT INTO countries (name) VALUES ($1) RETURNING id;"
-    values = [@name]
+    sql = "INSERT INTO countries (name, visited) VALUES ($1, $2) RETURNING id;"
+    values = [@name, @visited]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -26,8 +26,8 @@ class Country
   end
 
   def update()
-    sql = "UPDATE countries SET name = $1 WHERE id = $2"
-    values = [@name, @id]
+    sql = "UPDATE countries SET (name, visited) = ($1, $2) WHERE id = $3"
+    values = [@name, @visited, @id]
     SqlRunner.run(sql, values)
   end
 

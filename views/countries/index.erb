@@ -1,13 +1,29 @@
 <h1>Countries</h1>
 
 <button onclick="window.location.href = '/countries/new';">Add a country</button>
+<br>
+
+<h2>Countries Visited</h2>
 
 <% for country in @countries %>
-  <p><%= country.name() %></p>
-  <button onclick="window.location.href = '/countries/<%= country.id() %>';">Show Country</button>
-  <button onclick="window.location.href = '/countries/<%= country.id() %>/edit';">Edit Country</button>
-  <form action="/countries/<%= country.id %>/delete" method="POST"><input type="submit" value="Delete Country">
-  </form>
+  <% if country.visited == true %>
+    <p><%= country.name() %></p>
+    <button onclick="window.location.href = '/countries/<%= country.id() %>';">Show Country</button>
+    <button onclick="window.location.href = '/countries/<%= country.id() %>/edit';">Edit Country</button>
+    <form action="/countries/<%= country.id %>/delete" method="POST"><input type="submit" value="Delete Country">
+    </form>
+  <%end%>
+<%end%>
 
 
-<% end %>
+<h2>Countries Still to See</h2>
+
+<% for country in @countries %>
+  <% if country.visited == false %>
+    <p><%= country.name() %></p>
+    <button onclick="window.location.href = '/countries/<%= country.id() %>';">Show Country</button>
+    <button onclick="window.location.href = '/countries/<%= country.id() %>/edit';">Edit Country</button>
+    <form action="/countries/<%= country.id %>/delete" method="POST"><input type="submit" value="Delete Country">
+    </form>
+  <%end%>
+<%end%>

@@ -8,15 +8,14 @@ class Sight
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
-    @visited = details['visited']
     @type = details['type']
     @country_id = details['country_id'].to_i
     @city_id = details['city_id'].to_i
   end
 
   def save()
-    sql = "INSERT INTO sights (name, visited, type, country_id, city_id) VALUES ($1, $2, $3, $4, $5) RETURNING id;"
-    values = [@name, @visited, @type, @country_id, @city_id]
+    sql = "INSERT INTO sights (name, type, country_id, city_id) VALUES ($1, $2, $3, $4) RETURNING id;"
+    values = [@name, @type, @country_id, @city_id]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -28,8 +27,8 @@ class Sight
   end
 
   def update()
-    sql = "UPDATE sights SET (name, visited, type, country_id, city_id) = ($1, $2, $3, $4, $5) WHERE id = $6"
-    values = [@name, @visited, @type, @country_id, @city_id, @id]
+    sql = "UPDATE sights SET (name, type, country_id, city_id) = ($1, $2, $3, $4) WHERE id = $6"
+    values = [@name, @type, @country_id, @city_id, @id]
     SqlRunner.run(sql, values)
   end
 

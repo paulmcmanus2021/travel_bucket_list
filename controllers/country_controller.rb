@@ -12,7 +12,7 @@ end
 
 # NEW
 get '/countries/new' do
-  @countries = Country.all()
+  # @countries = Country.all()
   erb(:"countries/new")
 end
 #
@@ -28,6 +28,8 @@ end
 get '/countries/:id' do
   id = params[:id].to_i()
   @country = Country.find(id)
+  @visited_cities = City.been_there(id)
+  @not_visited_cities =
   erb(:"countries/show")
 end
 

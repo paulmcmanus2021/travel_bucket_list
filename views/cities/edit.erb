@@ -1,0 +1,16 @@
+<h1>Edit a city here</h1>
+
+<h3></h3>
+
+<form action="/cities/<%= @city.id() %>" method="POST">
+
+
+  <label for="city">City:</label>
+  <input required type="text" value="<%= @city.name() %>" id="city" name="name">
+  <br>
+  <br>
+
+
+  <button type="Submit">Submit</button>
+
+</form>

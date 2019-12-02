@@ -3,18 +3,18 @@ require_relative ('../db/sql_runner')
 class City
 
   attr_reader :id
-  attr_accessor :name, :visited, :country_id
+  attr_accessor :name, :country_id, :visited
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
-    @visited = details['visited']
     @country_id = details['country_id'].to_i
+    @visited = details['visited'] == "t" ? true : false
   end
 
   def save()
-    sql = "INSERT INTO cities (name, country_id) VALUES ($1, $2) RETURNING id;"
-    values = [@name, @country_id]
+    sql = "INSERT INTO cities (name, country_id, visited) VALUES ($1, $2, $3) RETURNING id;"
+    values = [@name, @country_id, @visited]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -26,8 +26,8 @@ class City
   end
 
   def update()
-    sql = "UPDATE cities SET (name, country_id) = ($1, $2) WHERE id = $3"
-    values = [@name, @country_id, @id]
+    sql = "UPDATE cities SET (name, country_id, visited) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @country_id, @visited, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -57,16 +57,18 @@ class City
     return sights.map {|sight|Sight.new(sight)}
   end
 
-  #cities visited
-  def self.been_there
-    sql = "SELECT * FROM cities WHERE visited = 't';"
-    visited = SqlRunner.run(sql)
+  # cities visited
+  def self.been_there(country_id)
+    sql = "SELECT * FROM cities WHERE visited = 't' WHERE country_id = $1;"
+    values = [country_id]
+    visited = SqlRunner.run(sql, values)
     return visited.map {|city|City.new(city)}
   end
 
   def self.not_been_there
-    sql = "SELECT * FROM cities WHERE visited = 'f';"
-    visited = SqlRunner.run(sql)
+    sql = "SELECT * FROM cities WHERE visited = 'f' WHERE country_id = $1;"
+    values = [country_id]
+    visited = SqlRunner.run(sql, values)
     return visited.map {|city|City.new(city)}
   end
 

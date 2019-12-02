@@ -6,15 +6,17 @@
 <form action="/cities" method="POST">
 
 
+  <input type="text" name="country_id" hidden value="<%= @country.id %>">
+
   <label for="city"></label>
   <input required type="text" placeholder="City Name" id="city" name="name">
   <br>
   <br>
 
-  <input type="radio" name="status" value="visited" id="visited">
-    <label for="visited">Add to visited</label>
-  <input type="radio" name="status" value="going" id="going">
-    <label for="going">Add to wishlist</label>
+  <input type="radio" name="visited" value="t" id="t">
+    <label for="t">Add to visited</label>
+  <input type="radio" name="visited" value="f" id="f">
+    <label for="f">Add to Still to See</label>
 
 <br>
 <br>
@@ -25,11 +27,7 @@
 
 <h2>Cities Visited</h2>
 
-<!-- for city in @cities
-  if status=visited
-    p city
-  end
-end -->
+
 
 <h2>Cities Still to See</h2>
 <hr>

@@ -5,28 +5,25 @@ DROP TABLE IF EXISTS continents;
 
 CREATE TABLE continents(
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR,
-  visited BOOLEAN
+  name VARCHAR
 );
 
 CREATE TABLE countries(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
-  visited BOOLEAN,
-  continent_id INT REFERENCES continents(id) ON DELETE CASCADE
+  visited BOOLEAN
 );
 
 CREATE TABLE cities(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
-  visited BOOLEAN,
-  country_id INT REFERENCES countries(id) ON DELETE CASCADE
+  country_id INT REFERENCES countries(id) ON DELETE CASCADE,
+  visited BOOLEAN
 );
 
 CREATE TABLE sights(
   id SERIAL8 PRIMARY KEY,
   name VARCHAR not null,
-  visited BOOLEAN,
   type VARCHAR,
   country_id INT REFERENCES countries(id) ON DELETE CASCADE,
   city_id INT REFERENCES cities(id) ON DELETE CASCADE
