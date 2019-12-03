@@ -2,7 +2,9 @@
 
 <h3></h3>
 
-<form action="/countries/<%= @country.id() %>" method="POST">
+<form action="/countries/<%= @country.id() %>/update" method="POST">
+
+
 
 
   <label for="country">Country:</label>
@@ -11,6 +13,11 @@
 
   <br>
 
+  <input type="radio" name="visited" value="t" id="t">
+    <label for="t">Add to visited</label>
+  <input type="radio" name="visited" value="f" id="f">
+    <label for="f">Add to wishlist</label>
+  <br>
 
   <button type="Submit">Submit</button>
 

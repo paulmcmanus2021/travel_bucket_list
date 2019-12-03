@@ -55,7 +55,7 @@ get '/countries/:id/edit' do
 end
 
 #UPDATE
-post '/countries/:id' do
+post '/countries/:id/update' do
   country = Country.new(params)
   country.update()
   redirect '/countries'
