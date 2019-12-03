@@ -21,6 +21,15 @@ p  {
   font-size: 50px;
 }
 
+.title a:hover {
+  color :black;
+  font-size: 50px;
+  background-color: #f8f8ff;
+  opacity: 0.9;
+}
+
+
+
 .nav {
   display: flex;
   flex-direction: row;

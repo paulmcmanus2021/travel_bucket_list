@@ -2,7 +2,7 @@
 
 
 <% for city in @cities %>
-  <p><%= city.name() %> in <%= city.country_id %></p>
+  <p><%= city.name() %>, <%= city.country %></p>
   <button onclick="window.location.href = '/cities/<%= city.id() %>/edit';">Edit City</button>
 <% end %>
 <br>

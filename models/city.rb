@@ -73,6 +73,15 @@ class City
     return visited.map {|city|City.new(city)}
   end
 
+  def country()
+    sql = "SELECT * FROM countries WHERE id = $1;"
+    values =[@country_id]
+    country = SqlRunner.run(sql, values)
+    array = country.map {|country|Country.new(country)}
+    return array.first.name
+  end
+
+
 
 
 end
