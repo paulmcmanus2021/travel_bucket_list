@@ -9,3 +9,35 @@ body {
 p  {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.title {
+  color :black;
+  font-size: 50px;
+}
+
+.title a {
+  color :black;
+  font-size: 50px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav a {
+  color :black;
+}
+
+.nav ul {
+  display: flex;
+  flex-direction: row;
+  padding-right: 20px;
+
+}
+.nav li {
+  font-size: 25px;
+  padding-right: 40px;
+  list-style-type: none;
+
+}

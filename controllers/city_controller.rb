@@ -52,5 +52,5 @@ end
 post '/cities/:id' do
   city = City.new(params)
   city.update()
-  redirect "/countries"
+    redirect "/countries/" + params['country_id']
 end
