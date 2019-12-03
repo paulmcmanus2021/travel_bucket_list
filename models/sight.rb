@@ -64,5 +64,4 @@ class Sight
   end
 
 
-
 end
