@@ -44,6 +44,7 @@ end
 get '/cities/:id/edit' do
   id = params[:id].to_i()
   @city = City.find(id)
+  @country_id = @city.country_id
   erb(:"cities/edit")
 end
 

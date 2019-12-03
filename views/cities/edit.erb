@@ -4,13 +4,18 @@
 
 <form action="/cities/<%= @city.id() %>" method="POST">
 
+  <input type="text" name="country_id" hidden value="<%= @country_id %>">
 
   <label for="city">City:</label>
   <input required type="text" value="<%= @city.name() %>" id="city" name="name">
   <br>
   <br>
 
-
+<input type="radio" name="visited" value="t" id="t">
+  <label for="t">Add to visited</label>
+<input type="radio" name="visited" value="f" id="f">
+  <label for="f">Add to wishlist</label>
+<br>
   <button type="Submit">Submit</button>
 
 </form>
