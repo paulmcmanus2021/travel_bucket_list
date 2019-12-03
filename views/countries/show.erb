@@ -21,14 +21,16 @@
 
 </form>
 
-<hr>
+<br>
+<br>
+<br>
 
 <h2>Cities Visited</h2>
 
 <% for city in @cities %>
   <% if (city.visited)  %>
       <p><%= city.name() %></p>
-      <button><a href="/cities/ <%= city.id %>/edit">Edit City</a></button>
+      <button onclick ="window.location.href = '/cities/ <%= city.id %>/edit';">Edit City</button>
       <form action="/cities/<%= city.id %>/delete" method="POST">
         <input type="submit" value="Delete City">
       </form>
@@ -36,14 +38,16 @@
     <%end %>
 <%end%>
 
-<hr>
+<br>
+<br>
+<br>
 
 <h2>Cities Still to See</h2>
 
 <% for city in @cities %>
   <% if (!city.visited)  %>
       <p><%= city.name() %></p>
-      <button><a href="/cities/ <%= city.id %>/edit ">Edit City</a></button>
+      <button onclick ="window.location.href = '/cities/ <%= city.id %>/edit';">Edit City</button>
       <form action="/cities/<%= city.id %>/delete" method="POST">
         <input type="submit" value="Delete City">
       </form>

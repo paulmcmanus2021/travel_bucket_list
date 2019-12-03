@@ -4,6 +4,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Josefin Sans', sans-serif;
+  height: 100vh;
 }
 
 p  {
@@ -39,5 +40,9 @@ p  {
   font-size: 25px;
   padding-right: 40px;
   list-style-type: none;
+}
 
+.nav li a:hover {
+  background-color: #f8f8ff;
+  opacity: 0.9;
 }
