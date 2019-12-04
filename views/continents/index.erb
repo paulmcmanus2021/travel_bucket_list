@@ -1,0 +1,23 @@
+<h1>Continents</h1>
+
+
+
+<h2>Continents Visited</h2>
+
+<% for continent in @continents %>
+  <% if continent.visited == true %>
+    <p><%= continent.name() %></p>
+  <%end%>
+<%end%>
+
+
+
+<h2>Continents Still to See</h2>
+
+<% for continent in @continents %>
+  <% if continent.visited == false %>
+    <p><%= continent.name() %></p>
+  <%end%>
+<%end%>
+<br>
+<br>

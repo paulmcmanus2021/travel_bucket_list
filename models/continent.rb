@@ -4,16 +4,17 @@ require_relative ('country.rb')
 class Continent
 
   attr_reader :id
-  attr_accessor :name
+  attr_accessor :name, :visited
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
     @name = details['name']
+    @visited = details['visited'] == "t" ? true : false
   end
 
   def save()
-    sql = "INSERT INTO continents (name) VALUES ($1) RETURNING id;"
-    values = [@name]
+    sql = "INSERT INTO continents (name, visited) VALUES ($1, $2) RETURNING id;"
+    values = [@name, @visited]
     results = SqlRunner.run(sql, values)
     @id = results.first()['id'].to_i
   end
@@ -25,8 +26,8 @@ class Continent
   end
 
   def update()
-    sql = "UPDATE continents SET (name) = ($1) WHERE id = $2"
-    values = [@name, @id]
+    sql = "UPDATE continents SET (name, visited) = ($1, $2) WHERE id = $3"
+    values = [@name, @visited, @id]
     SqlRunner.run(sql, values)
   end
 

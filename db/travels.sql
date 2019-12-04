@@ -5,7 +5,8 @@ DROP TABLE IF EXISTS continents;
 
 CREATE TABLE continents(
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR
+  name VARCHAR,
+  visited BOOLEAN
 );
 
 CREATE TABLE countries(

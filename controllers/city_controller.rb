@@ -37,7 +37,7 @@ post '/cities/:id/delete' do
   id = params[:id].to_i()
   city = City.find(id)
   city.delete()
-  redirect "/countries"
+  redirect "/countries" 
 end
 
 # EDIT

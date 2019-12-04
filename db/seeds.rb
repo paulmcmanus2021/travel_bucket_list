@@ -12,30 +12,37 @@ Continent.delete_all()
 #Continents
 continent1 = Continent.new({
   'name' => 'North America',
+  'visited' => 't'
   })
   continent1.save
 continent2 = Continent.new({
   'name' => 'South America',
+  'visited' => 'f'
   })
   continent2.save
 continent3 = Continent.new({
   'name' => 'Europe',
+  'visited' => 't'
   })
   continent3.save
 continent4 = Continent.new({
   'name' => 'Africa',
+  'visited' => 'f'
   })
   continent4.save
 continent5 = Continent.new({
   'name' => 'Asia',
+  'visited' => 'f'
   })
   continent5.save
 continent6 = Continent.new({
   'name' => 'Australia',
+  'visited' => 'f'
   })
   continent6.save
 continent7 = Continent.new({
   'name' => 'Antarctica',
+  'visited' => 'f'
   })
   continent7.save
 
