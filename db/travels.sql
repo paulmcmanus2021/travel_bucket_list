@@ -27,7 +27,8 @@ CREATE TABLE sights(
   name VARCHAR not null,
   type VARCHAR,
   country_id INT REFERENCES countries(id) ON DELETE CASCADE,
-  city_id INT REFERENCES cities(id) ON DELETE CASCADE
+  city_id INT REFERENCES cities(id) ON DELETE CASCADE,
+  visited BOOLEAN
 );
 
 -- Sights depends countries & cities so gets dropped first.

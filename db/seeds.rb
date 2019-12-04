@@ -102,7 +102,8 @@ sight1 = Sight.new({
   'name' => 'Empire State Building',
   'type' => 'Architecture',
   'country_id' => country1.id,
-  'city_id' => city1.id
+  'city_id' => city1.id,
+  'visited' => 't'
   })
   sight1.save
 
@@ -110,7 +111,8 @@ sight2 = Sight.new({
   'name' => 'Times Square',
   'type' => 'Area',
   'country_id' => country1.id,
-  'city_id' => city1.id
+  'city_id' => city1.id,
+  'visited' => 't'
   })
   sight2.save
 
@@ -118,7 +120,8 @@ sight3 = Sight.new({
   'name' => 'Christ the Redeemer',
   'type' => 'Statue',
   'country_id' => country2.id,
-  'city_id' => city2.id
+  'city_id' => city2.id,
+  'visited' => 'f'
   })
   sight3.save
 
@@ -126,7 +129,8 @@ sight4 = Sight.new({
   'name' => 'Griffith Park Observatory',
   'type' => 'Architecture',
   'country_id' => country1.id,
-  'city_id' => city3.id
+  'city_id' => city3.id,
+  'visited' => 'f'
   })
   sight4.save
 
@@ -134,7 +138,9 @@ sight5 = Sight.new({
   'name' => 'CN Tower',
   'type' => 'Architecture',
   'country_id' => country3.id,
-  'city_id' => city4.id
+  'city_id' => city4.id,
+  'visited' => 'f'
+
   })
   sight5.save
 

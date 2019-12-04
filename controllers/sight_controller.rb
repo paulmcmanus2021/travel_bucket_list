@@ -5,7 +5,7 @@ require_relative('../models/sight.rb')
 require('pry')
 
 # INDEX
-get '/continents' do
-  @continents = Continent.all()
-  erb(:"/continents/index")
+get '/sights' do
+  @sights = Sight.all()
+  erb(:"/sights/index")
 end

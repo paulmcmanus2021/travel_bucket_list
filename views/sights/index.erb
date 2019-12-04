@@ -1,0 +1,21 @@
+<h1>Sights</h1>
+
+
+
+<h2>Sights Visited</h2>
+
+<% for sight in @sights %>
+  <% if sight.visited == true %>
+    <p><%= sight.name() %></p>
+  <%end%>
+<%end%>
+
+
+
+<h2>Sights Still to See</h2>
+
+<% for sight in @sights %>
+  <% if sight.visited == false %>
+    <p><%= sight.name() %></p>
+  <%end%>
+<%end%>
