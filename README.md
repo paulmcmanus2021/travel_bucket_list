@@ -16,6 +16,14 @@ Add sights to the destination cities
 Search for destination by continent, city or country
 Any other ideas you might come up with
 
+to run this file:
+- create database. In terminal createdb travels
+- run seeds file. In terminal ruby db/seeds.rb
+- psql -d travels -f db/travels.sql
+- ensure sinatra gem is installed (sudo gem install )
+- spin up server: ruby app.rb
+- navigate to localhost:4567
+
 Challenges encountered during the project:
 
 1.Continually adding to working pages.
