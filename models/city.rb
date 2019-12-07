@@ -74,10 +74,15 @@ class City
   end
 
   def country()
+    #Get all the Country objects from the countries table where the id matches...
     sql = "SELECT * FROM countries WHERE id = $1;"
+    #this value/id.
     values =[@country_id]
+    #Perform the sql with the stated values and assign the result to country.
     country = SqlRunner.run(sql, values)
+    #Map new Country object with country variable information and assign it to array
     array = country.map {|country|Country.new(country)}
+    #return first thing in the array's name property (i.e. the country name)
     return array.first.name
   end
 
